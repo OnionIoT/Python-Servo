@@ -2,7 +2,7 @@ from onion import PWM
 
 
 pwm = PWM.get_device()
-
+pwm.setPWMFreq(60)
 
 
 servo_min = 150  # Min pulse length out of 4096
@@ -20,6 +20,6 @@ def set_angle(servo, ang):
     servo_range = servo_max - servo_min
 
 
-    value = float(ang) * float(servo_range) / float(angle_range)  + servo_min
+    value = ang * servo_range / angle_range + servo_min
 
     pwm.setPWM(servo, 0, value)
